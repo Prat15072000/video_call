@@ -8,7 +8,6 @@ import 'package:flutter_native_admob/native_admob_controller.dart';
 import './call.dart';
 
 class IndexPage extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() => IndexState();
 }
@@ -28,6 +27,7 @@ class IndexState extends State<IndexPage> {
     _channelController.dispose();
     super.dispose();
   }
+
   static const _adUnitID = "ca-app-pub-3940256099942544/8135179316";
 
   final _nativeAdController = NativeAdmobController();
@@ -47,16 +47,16 @@ class IndexState extends State<IndexPage> {
                 children: <Widget>[
                   Expanded(
                       child: TextField(
-                        controller: _channelController,
-                        decoration: InputDecoration(
-                          errorText:
+                    controller: _channelController,
+                    decoration: InputDecoration(
+                      errorText:
                           _validateError ? 'Channel name is mandatory' : null,
-                          border: UnderlineInputBorder(
-                            borderSide: BorderSide(width: 1),
-                          ),
-                          hintText: 'Channel name',
-                        ),
-                      ))
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(width: 1),
+                      ),
+                      hintText: 'Channel name',
+                    ),
+                  ))
                 ],
               ),
               Column(
@@ -95,7 +95,7 @@ class IndexState extends State<IndexPage> {
                       child: RaisedButton(
                         onPressed: onJoin,
                         child: Text('Join'),
-                        color: Colors.blueAccent,
+                        color: Colors.green,
                         textColor: Colors.white,
                       ),
                     )
@@ -107,9 +107,8 @@ class IndexState extends State<IndexPage> {
                 padding: EdgeInsets.all(10),
                 margin: EdgeInsets.only(bottom: 20.0),
                 child: NativeAdmob(
-                  // Your ad unit id
                   adUnitID: _adUnitID,
-                  numberAds: 3,
+                  numberAds: 2,
                   controller: _nativeAdController,
                   type: NativeAdmobType.banner,
                 ),
